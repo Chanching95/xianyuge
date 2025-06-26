@@ -156,22 +156,22 @@
       if ($('#name').val() && $('#score').val()) {//需要先確認必填欄位是否填寫
         $.ajax({
           // url為Google Form按下submit的aciotn
-          url: "https://docs.google.com/forms/d/e/1FAIpQLSeijRuLDQE62gbapDYgd_3pbmg7GyWY1CWPVeaEK-TiLDKzPw/formResponse",
+          url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfUlCEpisd9z5zFB2H9KIoo-EJQZRbUmxyqFaVDKktDduLZ6g/formResponse",
           crossDomain: true,//解決跨網域CORS的問題
           data: {// entry.xxxxx 這些需要填寫您表單裡面的值，與其相互對應
-            "entry.2040133429": $('#name').val(),
-            "entry.304089069": $('#email').val(),
-            "entry.207113062": $('#score').val(),
-            "entry.1310220291": $('#message').val()
+            "entry.372422137": $('#inputname').val(),
+            "entry.148077878": $('#inputuid').val(),
+            "entry.1291321162": $('#inputfirstman').val(),
+            "entry.254150105": $('#inputskill-1-1').val()
           },
           type: "POST", //因為是要進行insert的動作，故事用POST
           dataType: "JSONP",
           complete: function () {
             //完成後把這些欄位清空
-            $('#name').val('')
-            $('#email').val('')
-            $('#score').val('')
-            $('#message').val('')
+            $('#inputname').val('')
+            $('#inputuid').val('')
+            $('#inputfirstman').val('')
+            $('#inputskill-1-1').val('')
             //最後跳轉到感謝的頁面
             window.location.replace("thank.html");
           }
