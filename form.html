@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+    <title>仙玉閣成員及其隊伍統計</title>
+  </head>
+  <body>
+
+<div class="container">
+    <div class="row">
+<form class="row g-3">
+
+   <div class="col-12">
+    <label for="inputname" class="form-label">遊戲名字</label>
+    <input type="text" class="form-control" id="inputname">
+  </div>
+  <div class="col-12">
+    <label for="inputuid" class="form-label">遊戲ID</label>
+    <input type="text" class="form-control" id="inputuid">
+  </div>
+
+  <div class="col-4">
+    <label for="inputfirstman" class="form-label">主將</label>
+    <input type="text" class="form-control" id="inputfirstman">
+  </div>
+  <div class="col-4">
+    <label for="inputsecondman" class="form-label">副將</label>
+    <input type="text" class="form-control" id="inputsecondman">
+  </div>
+  <div class="col-4">
+     <label for="inputthirdman" class="form-label">副將</label>
+    <input type="text" class="form-control" id="inputthirdman">
+  </div>
+
+  <div class="col-4">
+    <label for="inputfirstmanred" class="form-label">紅度</label>
+    <input type="text" class="form-control" id="inputfirstmanred" placeholder="0-6 (典藏+1)">
+  </div>
+  <div class="col-4">
+    <label for="inputsecondmanred" class="form-label">紅度</label>
+    <input type="text" class="form-control" id="inputsecondmanred" placeholder="0-6 (典藏+1)">
+  </div>
+  <div class="col-4">
+     <label for="inputthirdmanred" class="form-label">紅度</label>
+    <input type="text" class="form-control" id="inputthirdmanred" placeholder="0-6 (典藏+1)">
+  </div>
+
+  <div class="col-4">
+    <label for="skill-1-1" class="form-label">戰法</label>
+    <input type="text" class="form-control" id="inputskill-1-1">
+  </div>
+  <div class="col-4">
+    <label for="skill-2-1" class="form-label">戰法</label>
+    <input type="text" class="form-control" id="inputskill-2-1">
+  </div>
+  <div class="col-4">
+     <label for="skill-3-1" class="form-label">戰法</label>
+    <input type="text" class="form-control" id="inputskill-3-1">
+  </div>
+
+  <div class="col-4">
+    <input type="text" class="form-control" id="inputskill-1-2">
+  </div>
+  <div class="col-4">
+    <input type="text" class="form-control" id="inputskill-2-2">
+  </div>
+  <div class="col-4">
+    <input type="text" class="form-control" id="inputskill-3-2">
+  </div>
+
+  <div class="col-4">
+    <label for="treatise-1-1" class="form-label">兵書</label>
+    <input type="text" class="form-control" id="inputtreatise-1-1">
+  </div>
+  <div class="col-4">
+    <label for="treatise-2-1" class="form-label">兵書</label>
+    <input type="text" class="form-control" id="inputtreatise-2-1">
+  </div>
+  <div class="col-4">
+     <label for="treatise-3-1" class="form-label">兵書</label>
+    <input type="text" class="form-control" id="inputtreatise-3-1">
+  </div>
+
+  <div class="col-4">
+    <input type="text" class="form-control" id="inputtreatise-1-2">
+  </div>
+  <div class="col-4">
+    <input type="text" class="form-control" id="inputtreatise-2-2">
+  </div>
+  <div class="col-4">
+    <input type="text" class="form-control" id="inputtreatise-3-2">
+  </div>
+
+  <div class="col-4">
+    <input type="text" class="form-control" id="inputtreatise-1-3">
+  </div>
+  <div class="col-4">
+    <input type="text" class="form-control" id="inputtreatise-2-3">
+  </div>
+  <div class="col-4">
+    <input type="text" class="form-control" id="inputtreatise-3-3">
+  </div>
+
+  <div class="col-12">
+    <label for="inputtime" class="form-label">活躍時間</label>
+    <input type="text" class="form-control" id="inputtime" placeholder="大部分時間都能上線">
+  </div>
+
+ <div class="container-contact100-form-btn">
+          <button class="contact100-form-btn">
+            Send Message
+          </button>
+        </div>
+</form>
+
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+    $('#google-form').submit(function (e) {
+      //在這裡我們要先擋掉form默認事件
+      e.preventDefault();
+
+      if ($('#name').val() && $('#score').val()) {//需要先確認必填欄位是否填寫
+        $.ajax({
+          // url為Google Form按下submit的aciotn
+          url: "https://docs.google.com/forms/d/e/1FAIpQLSeijRuLDQE62gbapDYgd_3pbmg7GyWY1CWPVeaEK-TiLDKzPw/formResponse",
+          crossDomain: true,//解決跨網域CORS的問題
+          data: {// entry.xxxxx 這些需要填寫您表單裡面的值，與其相互對應
+            "entry.2040133429": $('#name').val(),
+            "entry.304089069": $('#email').val(),
+            "entry.207113062": $('#score').val(),
+            "entry.1310220291": $('#message').val()
+          },
+          type: "POST", //因為是要進行insert的動作，故事用POST
+          dataType: "JSONP",
+          complete: function () {
+            //完成後把這些欄位清空
+            $('#name').val('')
+            $('#email').val('')
+            $('#score').val('')
+            $('#message').val('')
+            //最後跳轉到感謝的頁面
+            window.location.replace("thank.html");
+          }
+        });
+      }
+    });
+  </script>
+  </body>
+</html>
